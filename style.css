@@ -3,10 +3,9 @@ body {
     padding: 0;
     background: #e5e5e5;
     font-family: "Segoe UI", sans-serif;
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    min-height: 100vh; /* Tambahkan ini */
 }
 
 .topbar {
@@ -17,6 +16,7 @@ body {
     align-items: center;
     gap: 10px;
     font-size: 17px;
+    flex-shrink: 0; /* Topbar tetap di atas */
 }
 
 select {
@@ -26,11 +26,20 @@ select {
     font-size: 16px;
 }
 
+/* Container untuk card - INI YANG BIKIN CENTER */
+.card-container {
+    flex: 1; /* Ambil sisa ruang */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Center vertikal */
+    align-items: center;
+    padding: 20px;
+}
+
 /* Card utama */
 #card {
-    margin-top: 80px; /* UBAH dari 200px ke 80px */
-    width: 90%; /* UBAH dari 780px ke 90% */
-    max-width: 780px; /* Tambahkan max-width */
+    width: 90%;
+    max-width: 780px;
     min-height: 320px;
     background: #ffffff;
     border-radius: 15px;
@@ -52,8 +61,8 @@ select {
 
 #dictionaryList {
     margin-top: 30px;
-    width: 90%; /* UBAH dari 800px ke 90% */
-    max-width: 800px; /* Tambahkan max-width */
+    width: 90%;
+    max-width: 800px;
     display: none;
     background: white;
     padding: 20px;
@@ -66,11 +75,10 @@ select {
     border-bottom: 1px solid #eee;
 }
 
-/* Mobile - PERBAIKI media query */
+/* Mobile */
 @media (max-width: 768px) {
     #card {
-        margin-top: 40px; /* Lebih kecil untuk mobile */
-        font-size: 120px; /* Font lebih kecil untuk mobile */
+        font-size: 120px;
         min-height: 250px;
         width: 95%;
     }
@@ -89,9 +97,4 @@ select {
         width: 95%;
         padding: 15px;
     }
-}
-
-.wordRow {
-    padding: 8px 0;
-    border-bottom: 1px solid #eee;
 }
