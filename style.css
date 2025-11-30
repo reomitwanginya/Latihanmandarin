@@ -58,6 +58,19 @@ select {
     border: 1px solid #ccc;
 }
 
+/* Desktop */
+.container {
+    margin-top: 50px;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    .container {
+        margin-top: 20px;
+        padding: 15px;
+    }
+}
+
 .wordRow {
     padding: 8px 0;
     border-bottom: 1px solid #eee;
