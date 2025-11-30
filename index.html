@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>Latihan Mandarin Modern</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="topbar">
+    <label>Mode:</label>
+    <select id="mode" onchange="resetCard()">
+        <option value="hanziToIndo">Hanzi → Arti</option>
+        <option value="indoToHanzi">Arti → Hanzi</option>
+        <option value="dictionary">Lihat Kamus</option>
+        <option value="hanziOnlyPresent">Hanzi Saja (presentasi)</option>
+    </select>
+</div>
+
+<div id="card" onclick="flipCard()">
+    <div id="cardContent"></div>
+</div>
+
+<div id="dictionaryList"></div>
+
+<script src="script.js"></script>
+</body>
+</html>
