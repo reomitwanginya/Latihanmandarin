@@ -27,7 +27,7 @@ select {
 
 /* Card utama */
 #card {
-    margin-top: 70px;
+    margin-top: 200px;
     width: 780px;
     min-height: 320px;
     background: #ffffff;
@@ -50,7 +50,7 @@ select {
 
 #dictionaryList {
     margin-top: 30px;
-    width: 350px;
+    width: 800px;
     display: none;
     background: white;
     padding: 20px;
