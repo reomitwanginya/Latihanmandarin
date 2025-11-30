@@ -79,7 +79,7 @@ select {
 /* Mobile */
 @media (max-width: 768px) {
     .card-container {
-        margin-top: -40px; /* Lebih sedikit untuk mobile */
+        margin-top: 40px; /* Lebih sedikit untuk mobile */
     }
     
     #card {
@@ -94,7 +94,7 @@ select {
     }
     
     select {
-        font-size: 14px;
+        font-size: 10px;
         padding: 5px 10px;
     }
     
