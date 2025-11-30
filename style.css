@@ -16,8 +16,6 @@ body {
     align-items: center;
     gap: 10px;
     font-size: 17px;
-    z-index: 10; /* TAMBAHKAN INI - biar topbar di atas */
-    position: relative; /* TAMBAHKAN INI */
 }
 
 select {
@@ -27,7 +25,7 @@ select {
     font-size: 16px;
 }
 
-/* Container untuk center card */
+/* Container untuk center card - UBAH INI */
 .card-container {
     flex: 1;
     display: flex;
@@ -35,6 +33,8 @@ select {
     justify-content: center;
     align-items: center;
     padding: 20px;
+    padding-top: 0; /* Hapus padding atas */
+    margin-top: -50px; /* Tarik card lebih ke tengah */
 }
 
 /* Card utama */
@@ -78,9 +78,13 @@ select {
 
 /* Mobile */
 @media (max-width: 768px) {
+    .card-container {
+        margin-top: -30px; /* Lebih sedikit untuk mobile */
+    }
+    
     #card {
-        font-size: 80px; /* Jangan terlalu kecil, 20px kegedean dikurangin */
-        min-height: 200px; /* Jangan 40px, terlalu kecil */
+        font-size: 120px;
+        min-height: 250px;
         width: 95%;
     }
     
@@ -90,7 +94,7 @@ select {
     }
     
     select {
-        font-size: 14px; /* Jangan 10px, terlalu kecil */
+        font-size: 14px;
         padding: 5px 10px;
     }
     
