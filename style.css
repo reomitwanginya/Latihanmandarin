@@ -3,10 +3,10 @@ body {
     padding: 0;
     background: #e5e5e5;
     font-family: "Segoe UI", sans-serif;
-    height: 100vh; /* UBAH dari min-height ke height */
+    height: 100vh; 
     display: flex;
     flex-direction: column;
-    overflow: hidden; /* TAMBAHKAN INI */
+    overflow: hidden; 
 }
 
 .topbar {
@@ -19,7 +19,7 @@ body {
     font-size: 17px;
     z-index: 9999;
     position: relative;
-    flex-shrink: 0; /* TAMBAHKAN INI - topbar gak kempes */
+    flex-shrink: 0; 
 }
 
 select {
@@ -32,13 +32,12 @@ select {
 }
 
 .card-container {
-    flex: 1; /* Ambil sisa space */
+    flex: 1; 
     display: flex;
     flex-direction: column;
-    justify-content: center; /* Center vertikal */
+    justify-content: center; 
     align-items: center;
     padding: 20px;
-    /* HAPUS margin-top negatif */
     z-index: 1;
 }
 
@@ -75,8 +74,8 @@ select {
     padding: 20px;
     border-radius: 12px;
     border: 1px solid #ccc;
-    overflow-y: auto; /* TAMBAHKAN INI untuk scroll */
-    max-height: 400px; /* TAMBAHKAN INI */
+    overflow-y: auto; 
+    max-height: 400px; 
 }
 
 .wordRow {
@@ -86,7 +85,7 @@ select {
 
 @media (max-width: 768px) {
     body {
-        height: 100vh; /* Pastikan full height di mobile */
+        height: 100vh; 
     }
     
     #card {
