@@ -1,11 +1,11 @@
 body {
     margin: 0;
     padding: 0;
-    background: #e5e5e5;
+    background: #e5e5e5; /* abu-abu lembut */
     font-family: "Segoe UI", sans-serif;
-    min-height: 100vh;
     display: flex;
     flex-direction: column;
+    align-items: center;
 }
 
 .topbar {
@@ -25,26 +25,14 @@ select {
     font-size: 16px;
 }
 
-/* Container untuk center card - UBAH INI */
-.card-container {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 20px;
-    padding-top: 0; /* Hapus padding atas */
-    margin-top: -50px; /* Tarik card lebih ke tengah */
-}
-
 /* Card utama */
 #card {
-    width: 90%;
-    max-width: 780px;
+    margin-top: 200px;
+    width: 780px;
     min-height: 320px;
     background: #ffffff;
     border-radius: 15px;
-    border: 1px solid #ddd;
+    border: 1px solid #ddd;        /* contour */
     box-shadow: 0px 4px 12px rgba(0,0,0,0.1);
     display: flex;
     align-items: center;
@@ -62,8 +50,7 @@ select {
 
 #dictionaryList {
     margin-top: 30px;
-    width: 90%;
-    max-width: 800px;
+    width: 800px;
     display: none;
     background: white;
     padding: 20px;
@@ -76,30 +63,15 @@ select {
     border-bottom: 1px solid #eee;
 }
 
+/* Desktop */
+.container {
+    margin-top: 50px;
+}
+
 /* Mobile */
 @media (max-width: 768px) {
-    .card-container {
-        margin-top: -30px; /* Lebih sedikit untuk mobile */
-    }
-    
-    #card {
-        font-size: 120px;
-        min-height: 250px;
-        width: 95%;
-    }
-    
-    .topbar {
-        font-size: 15px;
-        padding: 10px;
-    }
-    
-    select {
-        font-size: 14px;
-        padding: 5px 10px;
-    }
-    
-    #dictionaryList {
-        width: 95%;
+    .container {
+        margin-top: 20px;
         padding: 15px;
     }
 }
