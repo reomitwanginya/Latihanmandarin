@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Latihan Dialog Mandarin</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .container {
+            background: white;
+            border-radius: 20px;
+            padding: 50px;
+            max-width: 1500px;
+            width: 90%;
+            /*max-height: 90vh;*/
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        h1 {
+            text-align: center;
+            color: #667eea;
+            margin-bottom: 10px;
+            font-size: 36px;
+        }
+
+        /*.subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 40px;
+            font-size: 18px;
+        }*/
+
+        .dialogue-card {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            border-radius: 15px;
+            padding: 60px 40px;
+            margin-bottom: 30px;
+            min-height: 300px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        .speaker {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 8px 25px;
+            border-radius: 25px;
+            font-size: 16px;
+            font-weight: bold;
+            margin-bottom: 25px;
+        }
+
+        .hanzi {
+            font-size: 72px;
+            font-weight: bold;
+            color: #2d3748;
+            margin-bottom: 15px;
+            line-height: 1.4;
+        }
+
+        .pinyin {
+            font-size: 24px;
+            color: #667eea;
+            margin-bottom: 15px;
+            font-style: italic;
+        }
+
+        .translation {
+            font-size: 20px;
+            color: #4a5568;
+            margin-top: 15px;
+        }
+
+        .controls {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        button {
+            background: #667eea;
+            color: white;
+            border: none;
+            padding: 15px 40px;
+            border-radius: 30px;
+            font-size: 18px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-weight: bold;
+        }
+
+        button:hover {
+            background: #5568d3;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        button:active {
+            transform: translateY(0);
+        }
+
+        button:disabled {
+            background: #cbd5e0;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .play-btn {
+            background: #48bb78;
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            font-size: 32px;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .play-btn:hover {
+            background: #38a169;
+        }
+
+        .progress {
+            text-align: center;
+            color: #718096;
+            font-size: 16px;
+            margin-bottom: 15px;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 10px;
+            background: #e2e8f0;
+            border-radius: 10px;
+            overflow: hidden;
+            margin-bottom: 30px;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+            transition: width 0.3s ease;
+        }
+
+        /*.mode-toggle {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            margin-bottom: 20px;
+        }*/
+
+        /*.mode-btn {
+            padding: 10px 30px;
+            font-size: 16px;
+            background: #e2e8f0;
+            color: #4a5568;
+        }*/
+
+        .mode-btn.active {
+            background: #667eea;
+            color: white;
+        }
+
+        /*.auto-play-toggle {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 30px;
+            font-size: 16px;
+            color: #4a5568;
+        }*/
+
+        .switch {
+            position: relative;
+            width: 50px;
+            height: 26px;
+        }
+
+        .switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #cbd5e0;
+            transition: .4s;
+            border-radius: 34px;
+        }
+
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 18px;
+            width: 18px;
+            left: 4px;
+            bottom: 4px;
+            background-color: white;
+            transition: .4s;
+            border-radius: 50%;
+        }
+
+        input:checked + .slider {
+            background-color: #48bb78;
+        }
+
+        input:checked + .slider:before {
+            transform: translateX(24px);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🗣️ Latihan Dialog Mandarin</h1>
+        <p class="subtitle"></p>
+
+       
+
+        <div class="auto-play-toggle">
+            <span>:</span>
+            <label class="switch">
+                <input type="checkbox" id="autoPlayToggle" checked>
+                <span class="slider"></span>
+            </label>
+        </div>
+
+        <div class="progress">Dialog <span id="currentNum">1</span> dari <span id="totalNum">0</span></div>
+        <div class="progress-bar">
+            <div class="progress-fill" id="progressFill"></div>
+        </div>
+
+        <div class="dialogue-card">
+            <span class="speaker" id="speaker">A</span>
+            <div class="hanzi" id="hanzi">加载中...</div>
+            <div class="pinyin" id="pinyin"></div>
+            <div class="translation" id="translation"></div>
+        </div>
+
+        <div class="controls">
+            <button onclick="previousDialogue()" id="prevBtn">⬅️ Sebelumnya</button>
+            <button class="play-btn" onclick="playAudio()">▶️</button>
+            <button onclick="nextDialogue()" id="nextBtn">Selanjutnya ➡️</button>
+        </div>
+
+        <button onclick="resetDialogue()" style="width: 100%; margin-top: 10px;">🔄 Ulang dari Awal</button>
+    </div>
+
+    <script>
+        // DATA DIALOG - Ganti dengan data kamu sendiri
+        const dialogues = [
+            {
+                speaker: 'A',
+                hanzi: '圣诞节快乐！',
+                pinyin: 'Shèngdàn jié kuàilè!',
+                translation: 'Selamat Natal!',
+                audioText: '圣诞节快乐！'
+            },
+            {
+                speaker: 'A',
+                hanzi: '你有什么计划吗？',
+                pinyin: 'Nǐ yǒu shénme jìhuà ma?',
+                translation: 'Apakah kamu punya rencana?',
+                audioText: '你有什么计划吗？'
+            },
+            {
+                speaker: 'A',
+                hanzi: '我想去看圣诞树。',
+                pinyin: 'Wǒ xiǎng qù kàn shèngdàn shù.',
+                translation: 'Saya ingin melihat pohon Natal.',
+                audioText: '我想去看圣诞树。'
+            },
+            {
+                speaker: 'A',
+                hanzi: '你准备礼物了吗？',
+                pinyin: 'Nǐ zhǔnbèi lǐwù le ma?',
+                translation: 'Apakah kamu sudah menyiapkan hadiah?', 
+                audioText: '你准备礼物了吗？'  
+            },
+            {
+                speaker: 'A',
+                hanzi: '我也是 ',
+                pinyin: 'Wǒ yě shì ',
+                translation: 'Saya juga ',
+                audioText: '我也是 '
+            },
+            {
+                speaker: 'A',
+                hanzi: '祝你节日快乐！',
+                pinyin: 'Zhù nǐ jiérì kuàilè!',
+                translation: 'Selamat hari natal!',
+                audioText: '祝你节日快乐！'
+            }
+        ];
+
+        let currentIndex = 0;
+        let mode = 'full'; // 'full' atau 'ab'
+        let userRole = 'A'; // Untuk mode AB
+
+        function setMode(newMode) {
+            mode = newMode;
+            const buttons = document.querySelectorAll('.mode-btn');
+            buttons.forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+            
+            if (mode === 'a') {
+                // Filter hanya dialog untuk role user
+                currentIndex = 0;
+                displayDialogue();
+            } else {
+                displayDialogue();
+            }
+        }
+
+        function displayDialogue() {
+            const dialogue = dialogues[currentIndex];
+            
+            // Jika mode AB, skip dialog yang bukan role user
+            if (mode === 'a' && dialogue.speaker !== userRole) {
+                // Cari dialog selanjutnya yang sesuai role
+                const nextIndex = dialogues.findIndex((d, i) => i > currentIndex && d.speaker !== userRole);
+                if (nextIndex !== -1) {
+                    currentIndex = nextIndex;
+                }
+            }
+
+            document.getElementById('speaker').textContent = dialogue.speaker;
+            document.getElementById('hanzi').textContent = dialogue.hanzi;
+            document.getElementById('pinyin').textContent = dialogue.pinyin;
+            document.getElementById('translation').textContent = dialogue.translation;
+            document.getElementById('currentNum').textContent = currentIndex + 1;
+            document.getElementById('totalNum').textContent = dialogues.length;
+
+            // Update progress bar
+            const progress = ((currentIndex + 1) / dialogues.length) * 100;
+            document.getElementById('progressFill').style.width = progress + '%';
+
+            // Update button states
+            document.getElementById('prevBtn').disabled = currentIndex === 0;
+            document.getElementById('nextBtn').disabled = currentIndex === dialogues.length - 1;
+
+            // Auto-play jika diaktifkan
+            if (document.getElementById('autoPlayToggle').checked) {
+                setTimeout(() => playAudio(), 300);
+            }
+        }
+
+        function playAudio() {
+            const dialogue = dialogues[currentIndex];
+            
+            // Menggunakan Web Speech API untuk text-to-speech
+            // Untuk audio file, ganti dengan: new Audio(dialogue.audioFile).play()
+            
+            const utterance = new SpeechSynthesisUtterance(dialogue.audioText);
+            utterance.lang = 'zh-CN'; // Bahasa Mandarin
+            utterance.rate = 0.8; // Kecepatan bicara (0.1 - 10)
+            utterance.pitch = 1; // Nada suara
+            
+            speechSynthesis.cancel(); // Stop audio sebelumnya
+            speechSynthesis.speak(utterance);
+        }
+
+        function nextDialogue() {
+            if (currentIndex < dialogues.length - 1) {
+                currentIndex++;
+                displayDialogue();
+            }
+        }
+
+        function previousDialogue() {
+            if (currentIndex > 0) {
+                currentIndex--;
+                displayDialogue();
+            }
+        }
+
+        function resetDialogue() {
+            currentIndex = 0;
+            displayDialogue();
+        }
+
+        // Keyboard shortcuts
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight') nextDialogue();
+            if (e.key === 'ArrowLeft') previousDialogue();
+            if (e.key === ' ') {
+                e.preventDefault();
+                playAudio();
+            }
+        });
+
+        // Initialize
+        displayDialogue();
+    </script>
+</body>
+</html>
